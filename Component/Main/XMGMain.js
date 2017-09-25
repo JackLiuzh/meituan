@@ -56,38 +56,65 @@ getInitialState(){
             renderScene={(route, navigator) => {  
                let Component = route.component;  
                return <Component {...route.params} navigator={navigator} />;  
-          }}  
-          />  
+              }}  
+            />  
          </TabNavigator.Item>
 
          <TabNavigator.Item
-         title = "商家"
+          title = "商家"
           renderIcon = {() => <Image source={{uri: 'http://www.iconpng.com/png/eldorado_basic/015.png'}} style={styles.iconStyle}/>}
-          renderSelectedIcon = {() => <Image source={{uri: 'http://www.iconpng.com/png/iconza_purple/database.png'}} style={styles.iconStyle}/>}
+          renderSelectedIcon = {() => <Image source={{uri: 'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=463656216,1210357546&fm=200&gp=0.jpg'}} style={styles.iconStyle}/>}
           onPress = {() => {this.setState({selectedTab:'shop'})}}
           selected = {this.state.selectedTab === 'shop'}
          >
-           <Shop />
+            <Navigator  
+              initialRoute={{ name: '商家', component: Shop }}  
+              configureScene={() => {  
+               return Navigator.SceneConfigs.PushFromRight;  
+              }}  
+              renderScene={(route, navigator) => {  
+               let Component = route.component;  
+               return <Component {...route.params} navigator={navigator} />;  
+              }}  
+            />  
          </TabNavigator.Item>
 
          <TabNavigator.Item
           title = "我的"
           renderIcon = {() => <Image source={{uri: 'http://www.iconpng.com/png/eldorado_basic/015.png'}} style={styles.iconStyle}/>}
-          renderSelectedIcon = {() => <Image source={{uri: 'http://www.iconpng.com/png/iconza_purple/database.png'}} style={styles.iconStyle}/>}
+          renderSelectedIcon = {() => <Image source={{uri: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1484342823,356366591&fm=27&gp=0.jpg'}} style={styles.iconStyle}/>}
           onPress = {() => {this.setState({selectedTab:'mine'})}}
           selected = {this.state.selectedTab === 'mine'}
          >
-           <Mine />
+            <Navigator  
+              initialRoute={{ name: '我的', component: Mine }}  
+              configureScene={() => {  
+              return Navigator.SceneConfigs.PushFromRight;  
+              }}  
+               renderScene={(route, navigator) => {  
+               let Component = route.component;  
+               return <Component {...route.params} navigator={navigator} />;  
+              }}  
+            />
          </TabNavigator.Item>
 
          <TabNavigator.Item
-         title = "更多"
+          title = "更多"
           renderIcon = {() => <Image source={{uri: 'http://www.iconpng.com/png/eldorado_basic/015.png'}} style={styles.iconStyle}/>}
-          renderSelectedIcon = {() => <Image source={{uri: 'http://www.iconpng.com/png/iconza_purple/database.png'}} style={styles.iconStyle}/>}
+          renderSelectedIcon = {() => <Image source={{uri: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3749430945,1756305810&fm=27&gp=0.jpg'}} style={styles.iconStyle}/>}
           onPress = {() => {this.setState({selectedTab:'more'})}}
           selected = {this.state.selectedTab === 'more'}
          >
-           <More />
+            <Navigator  
+              initialRoute={{ name: '更多', component: More }}  
+              configureScene={() => {  
+              return Navigator.SceneConfigs.PushFromRight;  
+              }}  
+               renderScene={(route, navigator) => {  
+               let Component = route.component;  
+               return <Component {...route.params} navigator={navigator} />;  
+              }}  
+            />
          </TabNavigator.Item>
       </TabNavigator>
     );
