@@ -10,8 +10,14 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  TextInput,
+  Image,
+  Platform
 } from 'react-native';
+
+var Dimensions= require('Dimensions');
+var {width,height} = Dimensions.get('window');
 
 var HomeDetail = require('./XMGHomeDetal')
 var Home = React.createClass({
@@ -19,15 +25,37 @@ var Home = React.createClass({
   render() {
     return (
       <View style={styles.container}>
-       <TouchableOpacity onPress={() => {this.pushToDetail()}}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        </TouchableOpacity>
+          {this.renderNavBar()}  
+
+
+          <TouchableOpacity onPress={() => {this.pushToDetail()}}>
+            <Text style={styles.welcome}>
+              Welcome to React Native!
+            </Text>
+          </TouchableOpacity>
       </View>
     );
   },
 
+renderNavBar() {
+    return(
+      <View style={styles.navBarStyle}>
+          <TouchableOpacity onPress={()=>{alert('点击了')}}>
+          <Text style={{color:'white'}}>广州</Text>
+          </TouchableOpacity>
+          <TextInput
+              placeholder = "输入商家,品类,商圈"
+              style = {styles.topInputStyle}
+          />
+          <View style={{flexDirection:'row'}}>
+              <Image source={{uri: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=186879882,3756560845&fm=200&gp=0.jpg'}} style = {styles.navRightImg}/>
+              <Image source={{uri: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=186879882,3756560845&fm=200&gp=0.jpg'}} style = {styles.navRightImg}/>
+
+           </View>
+      </View>
+      
+      )
+},
 
 pushToDetail(){
   this.props.navigator.push(
@@ -41,10 +69,26 @@ pushToDetail(){
 });
 
 const styles = StyleSheet.create({
+  topInputStyle:{
+    width:width * 0.7,
+    height:35,
+    backgroundColor:'white',
+    borderRadius:18,
+    paddingLeft:8
+  },
+  navBarStyle:{
+     height:Platform.OS=='ios' ? 64 : 44,
+     backgroundColor:'rgba(255,96,0,1.0)',
+     flexDirection:'row',
+     alignItems:'center',
+     justifyContent:'space-around'
+  },
+  navRightImg:{
+    width:30,
+    height:30
+  },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
