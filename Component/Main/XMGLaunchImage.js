@@ -46,7 +46,7 @@ getInitialState(){
           component:Main,
         });
 
-      }, 2000);
+      }, 1000);
   }
 });
 

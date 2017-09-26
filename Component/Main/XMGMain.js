@@ -118,7 +118,11 @@ getInitialState(){
          </TabNavigator.Item>
       </TabNavigator>
     );
-  }
+  },
+
+
+  
+
 });
 
 
