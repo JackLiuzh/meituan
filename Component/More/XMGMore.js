@@ -33,7 +33,7 @@ var More = React.createClass({
                   <CommonCell title='扫一扫'/>
                   <CommonCell title='扫一扫'/>
                   <CommonCell title='扫一扫'/>
-                  <CommonCell title='扫一扫'/>
+                  <CommonCell title='扫一扫' rightTitle='1.99M' />
               </View>
 
               <View style={{marginTop:20}}>

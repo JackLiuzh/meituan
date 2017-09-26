@@ -22,7 +22,8 @@ var CommonCell = React.createClass({
   getDefaultProps(){
     return{
         title: '',
-        isSwitch:false
+        isSwitch:false,
+        rightTitle:''
     }
   },
 
@@ -50,10 +51,24 @@ var CommonCell = React.createClass({
         )
     }else{
       return(
+        <View style={{flexDirection:'row', alignItems:'center'}}>
+         {this.rightTitle()}
          <Image style={styles.imageStyle} source={{uri:'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=320170681,2968189466&fm=27&gp=0.jpg'}} />
+        </View>
         )
     }
+  },
+
+  rightTitle(){
+        if(this.props.rightTitle.length > 0){
+          return(
+            <Text style={{color:'gray'}}>{this.props.rightTitle}</Text>
+          )
+        }
   }
+
+
+
 });
 
 
